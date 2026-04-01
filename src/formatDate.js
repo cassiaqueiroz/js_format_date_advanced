@@ -11,10 +11,6 @@ function formatDate(date, fromFormat, toFormat) {
   const fromSeparator = fromFormat[3];
   const fromParts = date.split(fromSeparator);
 
-  if (fromParts.length !== 3) {
-    throw new Error('invalid date');
-  }
-
   const originEntries = fromFormat
     .slice(0, 3)
     .map((pattern, i) => [pattern, fromParts[i]]);
@@ -28,9 +24,6 @@ function formatDate(date, fromFormat, toFormat) {
   } else if ('YY' in originDateParts) {
     const yy = originDateParts['YY'];
 
-    if (!/^\d{2}$/.test(yy)) {
-      throw new Error('invalid year');
-    }
     fullYear = (Number(yy) < 30 ? '20' : '19') + yy;
   }
 
