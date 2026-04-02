@@ -41,10 +41,6 @@ function formatDate(date, fromFormat, toFormat) {
     return originDateParts[token];
   });
 
-  if (resultParts.includes(undefined)) {
-    throw new Error('invalid date');
-  }
-
   return resultParts.join(toFormat[3]);
 }
 
