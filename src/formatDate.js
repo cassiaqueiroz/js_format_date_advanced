@@ -9,11 +9,11 @@
  */
 function formatDate(date, fromFormat, toFormat) {
   const fromSeparator = fromFormat[3];
-  const fromParts = date.split(fromSeparator);
+  const dateValues = date.split(fromSeparator);
 
   const originEntries = fromFormat
     .slice(0, 3)
-    .map((pattern, i) => [pattern, fromParts[i]]);
+    .map((pattern, i) => [pattern, dateValues[i]]);
   const originDateParts = Object.fromEntries(originEntries);
 
   // calcula fullYear e shortYear a partir dos dados de origem
